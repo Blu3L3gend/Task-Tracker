@@ -8,8 +8,7 @@ my live server/VSCode. LITERALLY EVERYTHING. I just believe that it takes some t
 
 Another difficulty that I have been having is FS and LocalStorage, I've looked up multiple resources and tried to get help multiple times on these topics, and I honestly
 still have trouble knowing how to do the FS, so I only did what I knew how to do to the best of my abilities and commented everything that I knew.
-I've done everything I've possibly could do at this point, I know that I have improved on doing figuring out my Media Queries, And I am starting to get a little better trying to
-understanding Javascript.
+I've done everything I've possibly could do at this point, I know that I have improved on doing figuring out my Media Queries, I did eventually figure out the localstorage And I am starting to get a little better trying to understand Javascript.
 
 But as I said before, I think all of this has been a a huge journey, yes, I will admit there are few bumps and bruises that I REALLY need to patch up
 on, and I will still continue to acknowledge and fix my errors in the future. But overall, I'm super proud pf myself and all that I have accomplished with this project.
