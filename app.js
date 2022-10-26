@@ -1,115 +1,84 @@
+//when you load the site, it sets up the consts for DOM//
 window.addEventListener("load", () => {
-  todos = JSON.parse(localStorage.getItem("todos")) || [];
-  const nameInput = document.querySelector("#name");
-  const newTodoForm = document.querySelector("#new-todo-form");
-
-  const username = localStorage.getItem("username") || "";
-
-  nameInput.value = username;
-
-  nameInput.addEventListener("change", (e) => {
-    localStorage.setItem("username", e.target.value);
-  });
-
-  newTodoForm.addEventListener("submit", (e) => {
+  const text = document.querySelector("#input-form-text");
+  const form = document.querySelector("form");
+  const container = document.querySelector(".container");
+  //when you hit the submit button,, it will append the task into the container//
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    const todo = {
-      content: e.target.elements.content.value,
-      category: e.target.elements.category.value,
-      done: false,
-      createdAt: new Date().getTime(),
-    };
-
-    todos.push(todo);
-
-    localStorage.setItem("todos", JSON.stringify(todos));
-
-    // Reset the form
-    e.target.reset();
-
-    DisplayTodos();
-  });
-
-  DisplayTodos();
-});
-
-function DisplayTodos() {
-  const todoList = document.querySelector("#todo-list");
-  todoList.innerHTML = "";
-
-  todos.forEach((todo) => {
-    const todoItem = document.createElement("div");
-    todoItem.classList.add("todo-item");
-
-    const label = document.createElement("label");
-    const input = document.createElement("input");
-    const span = document.createElement("span");
-    const content = document.createElement("div");
-    const actions = document.createElement("div");
-    const edit = document.createElement("button");
-    const deleteButton = document.createElement("button");
-
-    input.type = "checkbox";
-    input.checked = todo.done;
-    span.classList.add("bubble");
-    if (todo.category == "personal") {
-      span.classList.add("personal");
+    if (text.value == "") {
+      alert("Please Enter Task"); //if you don't put a task in the input, it will alert you//
     } else {
-      span.classList.add("business");
-    }
-    content.classList.add("todo-content");
-    actions.classList.add("actions");
-    edit.classList.add("edit");
-    deleteButton.classList.add("delete");
+      const task = text.value;
+      // creates div class for task//
+      const tasks = document.createElement("div");
+      tasks.classList.add("task");
+      container.appendChild(tasks);
 
-    content.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
-    edit.innerHTML = "Edit";
-    deleteButton.innerHTML = "Delete";
+      // creates a class to the actual div call called  "content"//
+      const content = document.createElement("div");
+      content.classList.add("content");
+      tasks.appendChild(content);
 
-    label.appendChild(input);
-    label.appendChild(span);
-    actions.appendChild(edit);
-    actions.appendChild(deleteButton);
-    todoItem.appendChild(label);
-    todoItem.appendChild(content);
-    todoItem.appendChild(actions);
+      // The input box where you put your tasks in...(becomes the child of the content class)//
+      const input_text = document.createElement("input");
+      input_text.classList.add("input-text");
+      input_text.type = "text";
+      input_text.value = task;
+      input_text.setAttribute("readonly", true); //You can only read//
+      content.appendChild(input_text);
 
-    todoList.appendChild(todoItem);
+      //creates a div for the Add button (child of the task div)//
+      const btn = document.createElement("div");
+      btn.classList.add("btn");
+      tasks.appendChild(btn);
 
-    if (todo.done) {
-      todoItem.classList.add("done");
-    }
+      //for all of the buttons: Delete, Edit and Complete//
+      const clear = document.createElement("button");
+      clear.setAttribute("id", "done");
+      clear.innerHTML = `<i class="fa-solid fa-check"></i>`;
 
-    input.addEventListener("change", (e) => {
-      todo.done = e.target.checked;
-      localStorage.setItem("todos", JSON.stringify(todos));
+      const edit = document.createElement("button");
+      edit.setAttribute("id", "edit");
+      edit.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
 
-      if (todo.done) {
-        todoItem.classList.add("done");
-      } else {
-        todoItem.classList.remove("done");
-      }
+      const del = document.createElement("button");
+      del.setAttribute("id", "del");
+      del.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
 
-      DisplayTodos();
-    });
+      btn.appendChild(clear);
+      btn.appendChild(edit);
+      btn.appendChild(del);
 
-    edit.addEventListener("click", (e) => {
-      const input = content.querySelector("input");
-      input.removeAttribute("readonly");
-      input.focus();
-      input.addEventListener("blur", (e) => {
-        input.setAttribute("readonly", true);
-        todo.content = e.target.value;
-        localStorage.setItem("todos", JSON.stringify(todos));
-        DisplayTodos();
+      // on click for the complete button, it strikes out the task you completed//
+      clear.addEventListener("click", () => {
+        if (input_text.style.textDecoration == "none") {
+          input_text.style.textDecoration = "line-through";
+          tasks.style.backgroundColor = "#938f8f";
+        } else {
+          input_text.style.textDecoration = "none";
+          tasks.style.backgroundColor = "#fff";
+        }
       });
-    });
-
-    deleteButton.addEventListener("click", (e) => {
-      todos = todos.filter((t) => t != todo);
-      localStorage.setItem("todos", JSON.stringify(todos));
-      DisplayTodos();
-    });
+      // when you click edit, when you type it's supposed to turn red and allows you to edit text//
+      edit.addEventListener("click", () => {
+        if (
+          input_text.style.color == "black" &&
+          input_text.style.textDecoration == "none"
+        ) {
+          input_text.removeAttribute("readonly");
+          input_text.style.color = "red";
+          input_text.focus();
+        } else {
+          input_text.setAttribute("readonly", true);
+          input_text.style.color = "black";
+        }
+      });
+      //on click, clicking on the delete button will remove your task//
+      del.addEventListener("click", () => {
+        container.removeChild(tasks);
+      });
+      text.value = "";
+    }
   });
-}
+});

@@ -1,1438 +1,802 @@
-/*-------------Media Queries-------------------*/
-@media only screen and (max-width: 600px) {
-  :root {
-    --primary: #ea40a4;
-    --business: #3a82ee;
-    --personal: var(--primary);
-    --light: #eee;
-    --dark: #313154;
-    --danger: #ff5b57;
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
-    --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
-    --grey: #888;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "montserrat", sans-serif;
-  }
-  input:not([type="radio"]):not([type="checkbox"]),
-  button {
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: initial;
-  }
+/*-----The body of the page------*/
 
-  body {
-    background: var(--light);
-    color: var(--dark);
-  }
-  section {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5em;
-  }
-  h3 {
-    color: var(--dark);
-    font-size: 1rem;
-    font-weight: 400 rem;
-    margin-bottom: 0.5 rem;
-  }
-  h4 {
-    color: var(--grey);
-    font-size: 0.875rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  .App.title {
-    display: flex;
-  }
-
-  .App.title input {
-    margin-left: 00.5rem;
-    flex: 1 1 0%;
-    min-width: 0;
-  }
-
-  .greet .title,
-  .greet .title input {
-    color: var(--dark);
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  .To-do input[type="text"] {
-    display: block;
-    width: 100%;
-    font-size: 1.125rem;
-    padding: 1rem 1.5rem;
-    color: var(--dark);
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 1.5rem;
-  }
-
-  .To-do .Options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .To-do .Options label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-  }
-
-  input[type="radio"],
-  input[type="checkbox"] {
-    display: none;
-  }
-
-  .bubble {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid var(--business);
-    box-shadow: var(--business-glow);
-  }
-
-  .bubble.personal {
-    border-color: var(--personal);
-    box-shadow: var(--personal-glow);
-  }
-
-  .bubble::after {
-    content: "";
-    display: block;
-    opacity: 0;
-    width: 0px;
-    height: 0px;
-    background-color: var(--business);
-    box-shadow: var(--business-glow);
-    border-radius: 50%;
-    transition: 0.2s ease-in-out;
-  }
-
-  .bubble.personal::after {
-    background-color: var(--personal);
-    box-shadow: var(--personal-glow);
-  }
-  input:checked ~ .bubble::after {
-    width: 10px;
-    height: 10px;
-    opacity: 1;
-  }
-
-  .To-do .Options label div {
-    color: var(--dark);
-    font-size: 1.125rem;
-    margin-top: 1rem;
-  }
-
-  .To-do input[type="submit"] {
-    display: block;
-    width: 100%;
-    font-size: 1.125rem;
-    padding: 1rem 1.5rem;
-    color: #fff;
-    background-color: var(--primary);
-    border-radius: 0.5rem;
-    box-shadow: var(--personal-glow);
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-  }
-
-  .To-do input[type="submit"]:hover {
-    opacity: 0.75;
-  }
-
-  .Task-list .Todo-item {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 1rem;
-  }
-
-  .Todo-item label {
-    display: block;
-    margin-right: 1rem;
-    cursor: pointer;
-  }
-
-  .Todo-item .Todo-content {
-    color: var(--dark);
-    font-size: 1.125rem;
-  }
-
-  .Todo-item .action {
-    display: flex;
-    align-items: center;
-  }
-  .Todo-item .action button {
-    display: block;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    color: #fff;
-  }
-
-  .Todo-item .action .Edit {
-    margin-right: 0.5rem;
-    background-color: var(--primary);
-  }
-
-  .Todo-item .action .Delete {
-    margin-right: 0.5rem;
-    background-color: var(--danger);
-  }
-  @media only screen and (min-width: 600px) {
-    :root {
-      --primary: #ea40a4;
-      --business: #3a82ee;
-      --personal: var(--primary);
-      --light: #eee;
-      --dark: #313154;
-      --danger: #ff5b57;
-      --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
-      --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
-      --grey: #888;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "montserrat", sans-serif;
-    }
-    input:not([type="radio"]):not([type="checkbox"]),
-    button {
-      appearance: none;
-      border: none;
-      outline: none;
-      background: none;
-      cursor: initial;
-    }
-
-    body {
-      background: var(--light);
-      color: var(--dark);
-    }
-    section {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5em;
-    }
-    h3 {
-      color: var(--dark);
-      font-size: 1rem;
-      font-weight: 400 rem;
-      margin-bottom: 0.5 rem;
-    }
-    h4 {
-      color: var(--grey);
-      font-size: 0.875rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .App.title {
-      display: flex;
-    }
-
-    .App.title input {
-      margin-left: 00.5rem;
-      flex: 1 1 0%;
-      min-width: 0;
-    }
-
-    .greet .title,
-    .greet .title input {
-      color: var(--dark);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    .To-do input[type="text"] {
-      display: block;
-      width: 100%;
-      font-size: 1.125rem;
-      padding: 1rem 1.5rem;
-      color: var(--dark);
-      background-color: #fff;
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow);
-      margin-bottom: 1.5rem;
-    }
-
-    .To-do .Options {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .To-do .Options label {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      background-color: #fff;
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow);
-    }
-
-    input[type="radio"],
-    input[type="checkbox"] {
-      display: none;
-    }
-
-    .bubble {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 2px solid var(--business);
-      box-shadow: var(--business-glow);
-    }
-
-    .bubble.personal {
-      border-color: var(--personal);
-      box-shadow: var(--personal-glow);
-    }
-
-    .bubble::after {
-      content: "";
-      display: block;
-      opacity: 0;
-      width: 0px;
-      height: 0px;
-      background-color: var(--business);
-      box-shadow: var(--business-glow);
-      border-radius: 50%;
-      transition: 0.2s ease-in-out;
-    }
-
-    .bubble.personal::after {
-      background-color: var(--personal);
-      box-shadow: var(--personal-glow);
-    }
-    input:checked ~ .bubble::after {
-      width: 10px;
-      height: 10px;
-      opacity: 1;
-    }
-
-    .To-do .Options label div {
-      color: var(--dark);
-      font-size: 1.125rem;
-      margin-top: 1rem;
-    }
-
-    .To-do input[type="submit"] {
-      display: block;
-      width: 100%;
-      font-size: 1.125rem;
-      padding: 1rem 1.5rem;
-      color: #fff;
-      background-color: var(--primary);
-      border-radius: 0.5rem;
-      box-shadow: var(--personal-glow);
-      cursor: pointer;
-      transition: 0.2s ease-in-out;
-    }
-
-    .To-do input[type="submit"]:hover {
-      opacity: 0.75;
-    }
-
-    .Task-list .Todo-item {
-      display: flex;
-      align-items: center;
-      background-color: #fff;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow);
-      margin-bottom: 1rem;
-    }
-
-    .Todo-item label {
-      display: block;
-      margin-right: 1rem;
-      cursor: pointer;
-    }
-
-    .Todo-item .Todo-content {
-      color: var(--dark);
-      font-size: 1.125rem;
-    }
-
-    .Todo-item .action {
-      display: flex;
-      align-items: center;
-    }
-    .Todo-item .action button {
-      display: block;
-      padding: 0.5rem;
-      border-radius: 0.25rem;
-      color: #fff;
-    }
-    .Todo-item .action {
-      display: flex;
-      align-items: center;
-    }
-    .Todo-item .action button {
-      display: block;
-      padding: 0.5rem;
-      border-radius: 0.25rem;
-      color: #fff;
-    }
-    .Todo-item .action .Edit {
-      margin-right: 0.5rem;
-      background-color: var(--primary);
-    }
-
-    .Todo-item .action .Delete {
-      margin-right: 0.5rem;
-      background-color: var(--danger);
-    }
-  }
-
-  @media only screen and (max-width: 414px) {
-    :root {
-      --primary: #ea40a4;
-      --business: #3a82ee;
-      --personal: var(--primary);
-      --light: #eee;
-      --dark: #313154;
-      --danger: #ff5b57;
-      --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
-      --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
-      --grey: #888;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "montserrat", sans-serif;
-    }
-    input:not([type="radio"]):not([type="checkbox"]),
-    button {
-      appearance: none;
-      border: none;
-      outline: none;
-      background: none;
-      cursor: initial;
-    }
-
-    body {
-      background: var(--light);
-      color: var(--dark);
-    }
-    section {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5em;
-    }
-    h3 {
-      color: var(--dark);
-      font-size: 1rem;
-      font-weight: 400 rem;
-      margin-bottom: 0.5 rem;
-    }
-    h4 {
-      color: var(--grey);
-      font-size: 0.875rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .App.title {
-      display: flex;
-    }
-
-    .App.title input {
-      margin-left: 00.5rem;
-      flex: 1 1 0%;
-      min-width: 0;
-    }
-
-    .greet .title,
-    .greet .title input {
-      color: var(--dark);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    .To-do input[type="text"] {
-      display: block;
-      width: 100%;
-      font-size: 1.125rem;
-      padding: 1rem 1.5rem;
-      color: var(--dark);
-      background-color: #fff;
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow);
-      margin-bottom: 1.5rem;
-    }
-
-    .To-do .Options {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .To-do .Options label {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      background-color: #fff;
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow);
-    }
-
-    input[type="radio"],
-    input[type="checkbox"] {
-      display: none;
-    }
-
-    .bubble {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 2px solid var(--business);
-      box-shadow: var(--business-glow);
-    }
-
-    .bubble.personal {
-      border-color: var(--personal);
-      box-shadow: var(--personal-glow);
-    }
-
-    .bubble::after {
-      content: "";
-      display: block;
-      opacity: 0;
-      width: 0px;
-      height: 0px;
-      background-color: var(--business);
-      box-shadow: var(--business-glow);
-      border-radius: 50%;
-      transition: 0.2s ease-in-out;
-    }
-
-    .bubble.personal::after {
-      background-color: var(--personal);
-      box-shadow: var(--personal-glow);
-    }
-    input:checked ~ .bubble::after {
-      width: 10px;
-      height: 10px;
-      opacity: 1;
-    }
-
-    .To-do .Options label div {
-      color: var(--dark);
-      font-size: 1.125rem;
-      margin-top: 1rem;
-    }
-
-    .To-do input[type="submit"] {
-      display: block;
-      width: 100%;
-      font-size: 1.125rem;
-      padding: 1rem 1.5rem;
-      color: #fff;
-      background-color: var(--primary);
-      border-radius: 0.5rem;
-      box-shadow: var(--personal-glow);
-      cursor: pointer;
-      transition: 0.2s ease-in-out;
-    }
-
-    .To-do input[type="submit"]:hover {
-      opacity: 0.75;
-    }
-
-    .Task-list .Todo-item {
-      display: flex;
-      align-items: center;
-      background-color: #fff;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow);
-      margin-bottom: 1rem;
-    }
-
-    .Todo-item label {
-      display: block;
-      margin-right: 1rem;
-      cursor: pointer;
-    }
-
-    .Todo-item .Todo-content {
-      color: var(--dark);
-      font-size: 1.125rem;
-    }
-
-    .Todo-item .actions {
-      display: flex;
-      align-items: center;
-    }
-    .Todo-item .actions button {
-      display: block;
-      padding: 0.5rem;
-      border-radius: 0.25rem;
-      color: #fff;
-    }
-  }
-  .Todo-item .action {
-    display: flex;
-    align-items: center;
-  }
-  .Todo-item .action button {
-    display: block;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    color: #fff;
-  }
-}
-.Todo-item .action .Edit {
-  margin-right: 0.5rem;
-  background-color: var(--primary);
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.Todo-item .action .Delete {
-  margin-right: 0.5rem;
-  background-color: var(--danger);
+body {
+  display: grid;
+  place-items: center;
+  height: 35vh;
+  font-family: "Oswald", sans-serif;
+  background: linear-gradient(to right, #28deeb, #eb88e6);
 }
+/*-----The body of the page------*/
+input,
+button {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+}
+
+/* section  */
+section {
+  min-width: 30vw;
+  max-width: 80vw;
+}
+
+/* --------The Title--------  */
+header {
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  color: #fff;
+}
+
+header h1 {
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-weight: 500;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* ----For your tasks--- */
+header form {
+  background-color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 16px;
+}
+
+form #input-form-text {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  width: 80%;
+}
+
+form #input-form-text::placeholder {
+  color: #80747f;
+}
+
+/* ------The Add button------ */
+.fa-solid {
+  border-radius: 2px;
+  padding: 3px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 5px;
+}
+
+form .fa-plus {
+  background-color: #5f8ac7;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/* -----container for the Task list----- */
+.container .task {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  border-radius: 16px;
+}
+
+.task .input-text {
+  width: 90%;
+  color: #333;
+}
+
+/* ------For the Delete, Edit and Complete button ------ */
+.task .fa-check {
+  background-color: #3f9a41;
+  color: #fff;
+}
+
+.task .fa-pen-to-square {
+  background-color: #635acf;
+  color: #fff;
+  font-weight: 400;
+}
+
+.task .fa-trash-can {
+  background-color: #c15827;
+  color: #fff;
+  font-weight: 400;
+}
+/*---------------------------------------------------------------------------*/
+/* -----MEDIA QUERIES----- */
 @media only screen and (max-width: 390px) {
-  :root {
-    --primary: #ea40a4;
-    --business: #3a82ee;
-    --personal: var(--primary);
-    --light: #eee;
-    --dark: #313154;
-    --danger: #ff5b57;
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
-    --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
-    --grey: #888;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "montserrat", sans-serif;
-  }
-  input:not([type="radio"]):not([type="checkbox"]),
-  button {
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: initial;
-  }
+  @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
 
   body {
-    background: var(--light);
-    color: var(--dark);
-  }
-  section {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5em;
-  }
-  h3 {
-    color: var(--dark);
-    font-size: 1rem;
-    font-weight: 400 rem;
-    margin-bottom: 0.5 rem;
-  }
-  h4 {
-    color: var(--grey);
-    font-size: 0.875rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  .App.title {
-    display: flex;
-  }
-
-  .App.title input {
-    margin-left: 00.5rem;
-    flex: 1 1 0%;
-    min-width: 0;
-  }
-
-  .greet .title,
-  .greet .title input {
-    color: var(--dark);
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  .To-do input[type="text"] {
-    display: block;
-    width: 100%;
-    font-size: 1.125rem;
-    padding: 1rem 1.5rem;
-    color: var(--dark);
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 1.5rem;
-  }
-
-  .To-do .Options {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
-    margin-bottom: 1.5rem;
+    place-items: center;
+    height: 35vh;
+    font-family: "Oswald", sans-serif;
+    background: linear-gradient(to right, #28deeb, #eb88e6);
+  }
+  input,
+  button {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
   }
 
-  .To-do .Options label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
+  section {
+    min-width: 30vw;
+    max-width: 80vw;
+  }
+  header {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    color: #fff;
+  }
+
+  header h1 {
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  header form {
     background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-  }
-
-  input[type="radio"],
-  input[type="checkbox"] {
-    display: none;
-  }
-
-  .bubble {
+    padding: 10px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid var(--business);
-    box-shadow: var(--business-glow);
+    justify-content: space-between;
+    border-radius: 16px;
   }
 
-  .bubble.personal {
-    border-color: var(--personal);
-    box-shadow: var(--personal-glow);
+  form #input-form-text {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    width: 80%;
   }
 
-  .bubble::after {
-    content: "";
-    display: block;
-    opacity: 0;
-    width: 0px;
-    height: 0px;
-    background-color: var(--business);
-    box-shadow: var(--business-glow);
-    border-radius: 50%;
-    transition: 0.2s ease-in-out;
+  form #input-form-text::placeholder {
+    color: #80747f;
   }
-
-  .bubble.personal::after {
-    background-color: var(--personal);
-    box-shadow: var(--personal-glow);
-  }
-  input:checked ~ .bubble::after {
-    width: 10px;
-    height: 10px;
-    opacity: 1;
-  }
-
-  .To-do .Options label div {
-    color: var(--dark);
-    font-size: 1.125rem;
-    margin-top: 1rem;
-  }
-
-  .To-do input[type="submit"] {
-    display: block;
-    width: 100%;
-    font-size: 1.125rem;
-    padding: 1rem 1.5rem;
-    color: #fff;
-    background-color: var(--primary);
-    border-radius: 0.5rem;
-    box-shadow: var(--personal-glow);
+  .fa-solid {
+    border-radius: 2px;
+    padding: 3px;
     cursor: pointer;
-    transition: 0.2s ease-in-out;
+    font-size: 1rem;
+    margin-right: 5px;
   }
 
-  .To-do input[type="submit"]:hover {
-    opacity: 0.75;
+  form .fa-plus {
+    background-color: #5f8ac7;
+    color: #fff;
+    font-size: 1.2rem;
   }
-
-  .Task-list .Todo-item {
+  .container .task {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     background-color: #fff;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 1rem;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 16px;
   }
 
-  .Todo-item label {
-    display: block;
-    margin-right: 1rem;
+  .task .input-text {
+    width: 90%;
+    color: #333;
+  }
+
+  .task .fa-check {
+    background-color: #3f9a41;
+    color: #fff;
+  }
+
+  .task .fa-pen-to-square {
+    background-color: #635acf;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .task .fa-trash-can {
+    background-color: #c15827;
+    color: #fff;
+    font-weight: 400;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+
+  body {
+    display: grid;
+    place-items: center;
+    height: 35vh;
+    font-family: "Oswald", sans-serif;
+    background: linear-gradient(to right, #28deeb, #eb88e6);
+  }
+  input,
+  button {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+  }
+
+  section {
+    min-width: 30vw;
+    max-width: 80vw;
+  }
+  header {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    color: #fff;
+  }
+
+  header h1 {
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  header form {
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16px;
+  }
+
+  form #input-form-text {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    width: 80%;
+  }
+
+  form #input-form-text::placeholder {
+    color: #80747f;
+  }
+  .fa-solid {
+    border-radius: 2px;
+    padding: 3px;
     cursor: pointer;
+    font-size: 1rem;
+    margin-right: 5px;
   }
 
-  .Todo-item .Todo-content {
-    color: var(--dark);
-    font-size: 1.125rem;
+  form .fa-plus {
+    background-color: #5f8ac7;
+    color: #fff;
+    font-size: 1.2rem;
   }
-
-  .Todo-item .actions {
+  .container .task {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 16px;
   }
-  .Todo-item .actions button {
-    display: block;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
+
+  .task .input-text {
+    width: 90%;
+    color: #333;
+  }
+
+  .task .fa-check {
+    background-color: #3f9a41;
     color: #fff;
   }
 
-  @media only screen and (max-width: 703px) {
-    :root {
-      --primary: #ea40a4;
-      --business: #3a82ee;
-      --personal: var(--primary);
-      --light: #eee;
-      --dark: #313154;
-      --danger: #ff5b57;
-      --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
-      --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
-      --grey: #888;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "montserrat", sans-serif;
-    }
-    input:not([type="radio"]):not([type="checkbox"]),
-    button {
-      appearance: none;
-      border: none;
-      outline: none;
-      background: none;
-      cursor: initial;
-    }
-
-    body {
-      background: var(--light);
-      color: var(--dark);
-    }
-    section {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5em;
-    }
-    h3 {
-      color: var(--dark);
-      font-size: 1rem;
-      font-weight: 400 rem;
-      margin-bottom: 0.5 rem;
-    }
-    h4 {
-      color: var(--grey);
-      font-size: 0.875rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .App.title {
-      display: flex;
-    }
-
-    .App.title input {
-      margin-left: 00.5rem;
-      flex: 1 1 0%;
-      min-width: 0;
-    }
-
-    .greet .title,
-    .greet .title input {
-      color: var(--dark);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    .To-do input[type="text"] {
-      display: block;
-      width: 100%;
-      font-size: 1.125rem;
-      padding: 1rem 1.5rem;
-      color: var(--dark);
-      background-color: #fff;
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow);
-      margin-bottom: 1.5rem;
-    }
-
-    .To-do .Options {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .To-do .Options label {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      background-color: #fff;
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow);
-    }
-
-    input[type="radio"],
-    input[type="checkbox"] {
-      display: none;
-    }
-
-    .bubble {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 2px solid var(--business);
-      box-shadow: var(--business-glow);
-    }
-
-    .bubble.personal {
-      border-color: var(--personal);
-      box-shadow: var(--personal-glow);
-    }
-
-    .bubble::after {
-      content: "";
-      display: block;
-      opacity: 0;
-      width: 0px;
-      height: 0px;
-      background-color: var(--business);
-      box-shadow: var(--business-glow);
-      border-radius: 50%;
-      transition: 0.2s ease-in-out;
-    }
-
-    .bubble.personal::after {
-      background-color: var(--personal);
-      box-shadow: var(--personal-glow);
-    }
-    input:checked ~ .bubble::after {
-      width: 10px;
-      height: 10px;
-      opacity: 1;
-    }
-
-    .To-do .Options label div {
-      color: var(--dark);
-      font-size: 1.125rem;
-      margin-top: 1rem;
-    }
-
-    .To-do input[type="submit"] {
-      display: block;
-      width: 100%;
-      font-size: 1.125rem;
-      padding: 1rem 1.5rem;
-      color: #fff;
-      background-color: var(--primary);
-      border-radius: 0.5rem;
-      box-shadow: var(--personal-glow);
-      cursor: pointer;
-      transition: 0.2s ease-in-out;
-    }
-
-    .To-do input[type="submit"]:hover {
-      opacity: 0.75;
-    }
-
-    .Task-list .Todo-item {
-      display: flex;
-      align-items: center;
-      background-color: #fff;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow);
-      margin-bottom: 1rem;
-    }
-
-    .Todo-item label {
-      display: block;
-      margin-right: 1rem;
-      cursor: pointer;
-    }
-
-    .Todo-item .Todo-content input {
-      color: var(--dark);
-      font-size: 1.125rem;
-    }
+  .task .fa-pen-to-square {
+    background-color: #635acf;
+    color: #fff;
+    font-weight: 400;
   }
-  .Todo-item .action {
-    display: flex;
-    align-items: center;
+
+  .task .fa-trash-can {
+    background-color: #c15827;
+    color: #fff;
+    font-weight: 400;
   }
-  .Todo-item .action button {
-    display: block;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
+}
+@media only screen and (max-width: 600px) {
+  @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+
+  body {
+    display: grid;
+    place-items: center;
+    height: 35vh;
+    font-family: "Oswald", sans-serif;
+    background: linear-gradient(to right, #28deeb, #eb88e6);
+  }
+  input,
+  button {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+  }
+
+  section {
+    min-width: 30vw;
+    max-width: 80vw;
+  }
+  header {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
     color: #fff;
   }
 
-  .Todo-item .action .Edit {
-    margin-right: 0.5rem;
-    background-color: var(--primary);
+  header h1 {
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
   }
 
-  .Todo-item .action .Delete {
-    margin-right: 0.5rem;
-    background-color: var(--danger);
+  header form {
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16px;
+  }
+
+  form #input-form-text {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    width: 80%;
+  }
+
+  form #input-form-text::placeholder {
+    color: #80747f;
+  }
+  .fa-solid {
+    border-radius: 2px;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 5px;
+  }
+
+  form .fa-plus {
+    background-color: #5f8ac7;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  .container .task {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+  }
+
+  .task .input-text {
+    width: 90%;
+    color: #333;
+  }
+
+  .task .fa-check {
+    background-color: #3f9a41;
+    color: #fff;
+  }
+
+  .task .fa-pen-to-square {
+    background-color: #635acf;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .task .fa-trash-can {
+    background-color: #c15827;
+    color: #fff;
+    font-weight: 400;
+  }
+}
+@media only screen and (min-width: 600px) {
+  @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+
+  body {
+    display: grid;
+    place-items: center;
+    height: 35vh;
+    font-family: "Oswald", sans-serif;
+    background: linear-gradient(to right, #28deeb, #eb88e6);
+  }
+  input,
+  button {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+  }
+
+  section {
+    min-width: 30vw;
+    max-width: 80vw;
+  }
+  header {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    color: #fff;
+  }
+
+  header h1 {
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  header form {
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16px;
+  }
+
+  form #input-form-text {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    width: 80%;
+  }
+
+  form #input-form-text::placeholder {
+    color: #80747f;
+  }
+  .fa-solid {
+    border-radius: 2px;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 5px;
+  }
+
+  form .fa-plus {
+    background-color: #5f8ac7;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  .container .task {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+  }
+
+  .task .input-text {
+    width: 90%;
+    color: #333;
+  }
+
+  .task .fa-check {
+    background-color: #3f9a41;
+    color: #fff;
+  }
+
+  .task .fa-pen-to-square {
+    background-color: #635acf;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .task .fa-trash-can {
+    background-color: #c15827;
+    color: #fff;
+    font-weight: 400;
+  }
+}
+@media only screen and (max-width: 703px) {
+  @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+
+  body {
+    display: grid;
+    place-items: center;
+    height: 35vh;
+    font-family: "Oswald", sans-serif;
+    background: linear-gradient(to right, #28deeb, #eb88e6);
+  }
+  input,
+  button {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+  }
+
+  section {
+    min-width: 30vw;
+    max-width: 80vw;
+  }
+  header {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    color: #fff;
+  }
+
+  header h1 {
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  header form {
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16px;
+  }
+
+  form #input-form-text {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    width: 80%;
+  }
+
+  form #input-form-text::placeholder {
+    color: #80747f;
+  }
+  .fa-solid {
+    border-radius: 2px;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 5px;
+  }
+
+  form .fa-plus {
+    background-color: #5f8ac7;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  .container .task {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+  }
+
+  .task .input-text {
+    width: 90%;
+    color: #333;
+  }
+
+  .task .fa-check {
+    background-color: #3f9a41;
+    color: #fff;
+  }
+
+  .task .fa-pen-to-square {
+    background-color: #635acf;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .task .fa-trash-can {
+    background-color: #c15827;
+    color: #fff;
+    font-weight: 400;
   }
 }
 @media only screen and (min-width: 728px) {
-  :root {
-    --primary: #ea40a4;
-    --business: #3a82ee;
-    --personal: var(--primary);
-    --light: #eee;
-    --dark: #313154;
-    --danger: #ff5b57;
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
-    --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
-    --grey: #888;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "montserrat", sans-serif;
-  }
-  input:not([type="radio"]):not([type="checkbox"]),
-  button {
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: initial;
-  }
+  @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
 
   body {
-    background: var(--light);
-    color: var(--dark);
-  }
-  section {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5em;
-  }
-  h3 {
-    color: var(--dark);
-    font-size: 1rem;
-    font-weight: 400 rem;
-    margin-bottom: 0.5 rem;
-  }
-  h4 {
-    color: var(--grey);
-    font-size: 0.875rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  .App.title {
-    display: flex;
-  }
-
-  .App.title input {
-    margin-left: 00.5rem;
-    flex: 1 1 0%;
-    min-width: 0;
-  }
-
-  .greet .title,
-  .greet .title input {
-    color: var(--dark);
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  .To-do input[type="text"] {
-    display: block;
-    width: 100%;
-    font-size: 1.125rem;
-    padding: 1rem 1.5rem;
-    color: var(--dark);
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 1.5rem;
-  }
-
-  .To-do .Options {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
-    margin-bottom: 1.5rem;
+    place-items: center;
+    height: 35vh;
+    font-family: "Oswald", sans-serif;
+    background: linear-gradient(to right, #28deeb, #eb88e6);
+  }
+  input,
+  button {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
   }
 
-  .To-do .Options label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
+  section {
+    min-width: 30vw;
+    max-width: 80vw;
   }
-
-  input[type="radio"],
-  input[type="checkbox"] {
-    display: none;
-  }
-
-  .bubble {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid var(--business);
-    box-shadow: var(--business-glow);
-  }
-
-  .bubble.personal {
-    border-color: var(--personal);
-    box-shadow: var(--personal-glow);
-  }
-
-  .bubble::after {
-    content: "";
-    display: block;
-    opacity: 0;
-    width: 0px;
-    height: 0px;
-    background-color: var(--business);
-    box-shadow: var(--business-glow);
-    border-radius: 50%;
-    transition: 0.2s ease-in-out;
-  }
-
-  .bubble.personal::after {
-    background-color: var(--personal);
-    box-shadow: var(--personal-glow);
-  }
-  input:checked ~ .bubble::after {
-    width: 10px;
-    height: 10px;
-    opacity: 1;
-  }
-
-  .To-do .Options label div {
-    color: var(--dark);
-    font-size: 1.125rem;
-    margin-top: 1rem;
-  }
-
-  .To-do input[type="submit"] {
-    display: block;
-    width: 100%;
-    font-size: 1.125rem;
-    padding: 1rem 1.5rem;
+  header {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
     color: #fff;
-    background-color: var(--primary);
-    border-radius: 0.5rem;
-    box-shadow: var(--personal-glow);
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
   }
 
-  .To-do input[type="submit"]:hover {
-    opacity: 0.75;
+  header h1 {
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
   }
 
-  .Task-list .Todo-item {
-    display: flex;
-    align-items: center;
+  header form {
     background-color: #fff;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 1rem;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16px;
   }
 
-  .Todo-item label {
-    display: block;
-    margin-right: 1rem;
+  form #input-form-text {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    width: 80%;
+  }
+
+  form #input-form-text::placeholder {
+    color: #80747f;
+  }
+  .fa-solid {
+    border-radius: 2px;
+    padding: 3px;
     cursor: pointer;
+    font-size: 1rem;
+    margin-right: 5px;
   }
 
-  .Todo-item .Todo-content input {
-    color: var(--dark);
-    font-size: 1.125rem;
+  form .fa-plus {
+    background-color: #5f8ac7;
+    color: #fff;
+    font-size: 1.2rem;
   }
-}
-.Todo-item .action {
-  display: flex;
-  align-items: center;
-}
-.Todo-item .action button {
-  display: block;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  color: #fff;
-}
+  .container .task {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+  }
 
-.Todo-item .action .Edit {
-  margin-right: 0.5rem;
-  background-color: var(--primary);
-}
+  .task .input-text {
+    width: 90%;
+    color: #333;
+  }
 
-.Todo-item .action .Delete {
-  margin-right: 0.5rem;
-  background-color: var(--danger);
+  .task .fa-check {
+    background-color: #3f9a41;
+    color: #fff;
+  }
+
+  .task .fa-pen-to-square {
+    background-color: #635acf;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .task .fa-trash-can {
+    background-color: #c15827;
+    color: #fff;
+    font-weight: 400;
+  }
 }
 @media only screen and (min-width: 820px) {
-  :root {
-    --primary: #ea40a4;
-    --business: #3a82ee;
-    --personal: var(--primary);
-    --light: #eee;
-    --dark: #313154;
-    --danger: #ff5b57;
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
-    --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
-    --grey: #888;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "montserrat", sans-serif;
-  }
-  input:not([type="radio"]):not([type="checkbox"]),
-  button {
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: initial;
-  }
+  @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
 
   body {
-    background: var(--light);
-    color: var(--dark);
-  }
-  section {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5em;
-  }
-  h3 {
-    color: var(--dark);
-    font-size: 1rem;
-    font-weight: 400 rem;
-    margin-bottom: 0.5 rem;
-  }
-  h4 {
-    color: var(--grey);
-    font-size: 0.875rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  .App.title {
-    display: flex;
-  }
-
-  .App.title input {
-    margin-left: 00.5rem;
-    flex: 1 1 0%;
-    min-width: 0;
-  }
-
-  .greet .title,
-  .greet .title input {
-    color: var(--dark);
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  .To-do input[type="text"] {
-    display: block;
-    width: 100%;
-    font-size: 1.125rem;
-    padding: 1rem 1.5rem;
-    color: var(--dark);
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 1.5rem;
-  }
-
-  .To-do .Options {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
-    margin-bottom: 1.5rem;
+    place-items: center;
+    height: 35vh;
+    font-family: "Oswald", sans-serif;
+    background: linear-gradient(to right, #28deeb, #eb88e6);
+  }
+  input,
+  button {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
   }
 
-  .To-do .Options label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
+  section {
+    min-width: 30vw;
+    max-width: 80vw;
   }
-
-  input[type="radio"],
-  input[type="checkbox"] {
-    display: none;
-  }
-
-  .bubble {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid var(--business);
-    box-shadow: var(--business-glow);
-  }
-
-  .bubble.personal {
-    border-color: var(--personal);
-    box-shadow: var(--personal-glow);
-  }
-
-  .bubble::after {
-    content: "";
-    display: block;
-    opacity: 0;
-    width: 0px;
-    height: 0px;
-    background-color: var(--business);
-    box-shadow: var(--business-glow);
-    border-radius: 50%;
-    transition: 0.2s ease-in-out;
-  }
-
-  .bubble.personal::after {
-    background-color: var(--personal);
-    box-shadow: var(--personal-glow);
-  }
-  input:checked ~ .bubble::after {
-    width: 10px;
-    height: 10px;
-    opacity: 1;
-  }
-
-  .To-do .Options label div {
-    color: var(--dark);
-    font-size: 1.125rem;
-    margin-top: 1rem;
-  }
-
-  .To-do input[type="submit"] {
-    display: block;
-    width: 100%;
-    font-size: 1.125rem;
-    padding: 1rem 1.5rem;
+  header {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
     color: #fff;
-    background-color: var(--primary);
-    border-radius: 0.5rem;
-    box-shadow: var(--personal-glow);
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
   }
 
-  .To-do input[type="submit"]:hover {
-    opacity: 0.75;
+  header h1 {
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
   }
 
-  .Task-list .Todo-item {
-    display: flex;
-    align-items: center;
+  header form {
     background-color: #fff;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 1rem;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16px;
   }
 
-  .Todo-item label {
-    display: block;
-    margin-right: 1rem;
+  form #input-form-text {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    width: 80%;
+  }
+
+  form #input-form-text::placeholder {
+    color: #80747f;
+  }
+  .fa-solid {
+    border-radius: 2px;
+    padding: 3px;
     cursor: pointer;
+    font-size: 1rem;
+    margin-right: 5px;
   }
 
-  .Todo-item .Todo-content input {
-    color: var(--dark);
-    font-size: 1.125rem;
+  form .fa-plus {
+    background-color: #5f8ac7;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  .container .task {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+  }
+
+  .task .input-text {
+    width: 90%;
+    color: #333;
+  }
+
+  .task .fa-check {
+    background-color: #3f9a41;
+    color: #fff;
+  }
+
+  .task .fa-pen-to-square {
+    background-color: #635acf;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .task .fa-trash-can {
+    background-color: #c15827;
+    color: #fff;
+    font-weight: 400;
   }
 }
-.Todo-item .action {
-  display: flex;
-  align-items: center;
-}
-.Todo-item .action button {
-  display: block;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  color: #fff;
-}
-
-.Todo-item .action .Edit {
-  margin-right: 0.5rem;
-  background-color: var(--primary);
-}
-
-.Todo-item .action .Delete {
-  margin-right: 0.5rem;
-  background-color: var(--danger);
-}
-
-/*---------------MEDIA QUERIES END--------------------------------------------------*/

@@ -8,76 +8,22 @@
     <title>Task Tracker</title>
   </head>
   <body>
-    <main class="App">
-      <section class="greet">
-        <h2 class="title">
-          Welcome User!<input type="text" id="name" placeholder=" Name Here" />
-        </h2>
-      </section>
-      <section class="To-do">
-        <h3>CREATE A TO DO</h3>
-        <form id="To do list Form">
-          <h4>What would you like to do Today?</h4>
+    <header >
+        <h1>What would you like to do?</h1>
+        <!----How the form is made---------->
+        <form action="#">
           <input
             type="text"
-            name="content"
-            id="content"
-            placeholder="ex help mom"
+            id="input-form-text"
+            placeholder="Ex: Take out Trash...."
           />
-          <h4>Pick Your Category</h4>
-          <div class="Options">
-            <label>
-              <input
-                type="radio"
-                name="category"
-                id="category1"
-                value="Personal"
-              />
-              <span class="bubble personal"></span>
-              <div>Personal</div>
-            </label>
-            <label>
-              <input type="radio" name="category" id="category2" value="Work" />
-              <span class="bubble Work"></span>
-              <div>Work</div>
-            </label>
-          </div>
-          <input type="submit" value="Add" />
+          <!-------For Add Button---------------------->
+          <button id="input-form-btn"><i class="fa-solid fa-plus"></i></button>
         </form>
-      </section>
-      <section class="Task-list">
-        <h3>To Do list</h3>
-        <div class="list" id="Todo-list">
-          <div class="Todo-item">
-            <label>
-              <input type="checkbox" />
-              <span class="bubble personal"></span>
-            </label>
+      </header>
 
-            <div class="Todo-content">
-              <input type="text" value="Take out trash" readonly />
-            </div>
-            <div class="action">
-              <button class="Edit">Edit</button>
-              <button class="Delete">Delete</button>
-            </div>
-          </div>
-          <div class="Todo-item">
-            <label>
-              <input type="checkbox" />
-              <span class="bubble Work"></span>
-            </label>
-            
-            <div class="Todo-content">
-              <input type="text" value="Work on Portfolio" readonly />
-            </div>
-            <div class="action">
-              <button class="Edit">Edit</button>
-              <button class="Delete">Delete</button>
-            </div>
-        </div>
-      </section>
-    </main>
+      <div class="container"></div>
+    </section>
     <script src="app.js"></script>
   </body>
 </html>
