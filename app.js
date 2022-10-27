@@ -1,5 +1,6 @@
 //when you load the site, it sets up the consts for DOM//
 window.addEventListener("load", () => {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   const text = document.querySelector("#input-form-text");
   const form = document.querySelector("form");
   const container = document.querySelector(".container");
@@ -10,17 +11,20 @@ window.addEventListener("load", () => {
       alert("Please Enter Task"); //if you don't put a task in the input, it will alert you//
     } else {
       const task = text.value;
+      tasks.push(task);
       // creates div class for task//
-      const tasks = document.createElement("div");
-      tasks.classList.add("task");
-      container.appendChild(tasks);
-
+      localStorage.clear("task");
+      const tasksDiv = document.createElement("div");
+      tasksDiv.classList.add("task");
+      container.appendChild(tasksDiv);
+      localStorage.setItem("tasks", JSON.stringify(tasks));
       // creates a class to the actual div call called  "content"//
       const content = document.createElement("div");
       content.classList.add("content");
-      tasks.appendChild(content);
+      tasksDiv.appendChild(content);
 
       // The input box where you put your tasks in...(becomes the child of the content class)//
+
       const input_text = document.createElement("input");
       input_text.classList.add("input-text");
       input_text.type = "text";
@@ -31,7 +35,7 @@ window.addEventListener("load", () => {
       //creates a div for the Add button (child of the task div)//
       const btn = document.createElement("div");
       btn.classList.add("btn");
-      tasks.appendChild(btn);
+      tasksDiv.appendChild(btn);
 
       //for all of the buttons: Delete, Edit and Complete//
       const clear = document.createElement("button");
@@ -54,10 +58,10 @@ window.addEventListener("load", () => {
       clear.addEventListener("click", () => {
         if (input_text.style.textDecoration == "none") {
           input_text.style.textDecoration = "line-through";
-          tasks.style.backgroundColor = "#938f8f";
+          tasksDiv.style.backgroundColor = "#938f8f";
         } else {
           input_text.style.textDecoration = "none";
-          tasks.style.backgroundColor = "#fff";
+          tasksDiv.style.backgroundColor = "#fff";
         }
       });
       // when you click edit, when you type it's supposed to turn red and allows you to edit text//
@@ -76,7 +80,7 @@ window.addEventListener("load", () => {
       });
       //on click, clicking on the delete button will remove your task//
       del.addEventListener("click", () => {
-        container.removeChild(tasks);
+        container.removeChild(tasksDiv);
       });
       text.value = "";
     }
